@@ -22,8 +22,6 @@ void spi_init(void)
 	SPI2->CR1		|=	CR1_SSM;
 	// Slave, NSS software control, internal NSS low
 	// NSS lowは通信可能の状態で待つという事。
-	SPI2->DR		=	0xAA;	//(10101010)
-	// Masterからの送信後に直ぐ送り返すデータ
 	SPI2->CR1		|=	CR1_SPE;
 	//稼働は、Slave、Masterの順
 	SPI1->CR1		|=	CR1_SPE;
@@ -39,4 +37,11 @@ uint8_t SPI1_master_transfer(uint8_t data) //Use at main
 	while(!(SPI1->SR & SR_RXNE)){}
 
 	return (uint8_t)SPI1->DR;
+}
+
+uint8_t SPI2_slave_receive(void)
+{
+	while(!(SPI2->SR & SR_RXNE)){}
+
+	return (uint8_t)SPI2->DR;
 }

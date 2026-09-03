@@ -9,5 +9,6 @@
 
 void spi_init(void);
 uint8_t SPI1_master_transfer(uint8_t data);
+uint8_t SPI2_slave_receive(void);
 
 #endif

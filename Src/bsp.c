@@ -5,5 +5,5 @@ void bsp_init(void)
 {
 	gpio_init();
 	spi_init();
-
+	uart_init();
 }

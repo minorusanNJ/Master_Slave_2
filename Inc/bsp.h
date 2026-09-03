@@ -6,6 +6,7 @@
 #include "gpio.h"
 #include "data.h"
 #include "spi.h"
+#include "uart.h"
 
 void bsp_init(void);
 
