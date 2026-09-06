@@ -45,3 +45,4 @@ uint8_t SPI2_slave_receive(void)
 
 	return (uint8_t)SPI2->DR;
 }
+

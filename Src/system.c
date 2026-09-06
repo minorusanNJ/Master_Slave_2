@@ -34,5 +34,20 @@ void system_init(void)
 			Error_Handler();
 		}
 	}
-
 }
+
+void Error_Handler(void)
+{
+	GPIOA->ODR	&=	0X6000,
+	GPIOB->ODR = 0,
+	GPIOC->ODR = 0,
+	GPIOD->ODR = 0,
+	GPIOE->ODR = 0;
+
+	__disable_irq();
+	while(1)
+	{
+
+	}
+}
+
